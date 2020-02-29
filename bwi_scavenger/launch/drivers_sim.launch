@@ -1,0 +1,4 @@
+<launch>
+	<include file="$(find bwi_launch)/launch/simulation_v2.launch"/>
+	<include file="$(find freenect_launch)/launch/freenect.launch"/>
+</launch>

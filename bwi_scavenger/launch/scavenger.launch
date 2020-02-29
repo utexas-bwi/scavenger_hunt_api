@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+	<!-- Load config parameters -->
+	<arg name="config_path" default="$(find bwi_scavenger)/config"/>
+	<rosparam command="load" file="$(arg config_path)/bwi_scavenger.yaml"/>
+	<arg name="darksocket_config_path" default="$(find darksocket_ros)/config"/>
+	<rosparam command="load" file="$(arg darksocket_config_path)/darksocket_ros.yaml"/>
+
+	<!-- Hardware and sensory IO -->
+	<node name="perception_node" pkg="bwi_scavenger" type="perception_node" output="screen"/>
+  <node name="move_node" pkg="bwi_scavenger" type="move_node" output="screen"/>
+
+	<!-- File and information processing -->
+	<node name="memory_node" pkg="bwi_scavenger" type="memory_node.py" output="screen"/>
+	<include file="$(find scavenger_hunt)/launch/scavenger_hunt.launch"/>
+	<include file="$(find darksocket_ros)/launch/darksocket_ros.launch"/>
+
+	<!-- Tasks -->
+  <node name="find_object_node" pkg="bwi_scavenger" type="find_object_node" output="screen"/>
+  <node name="conclude_node" pkg="bwi_scavenger" type="conclude_node" output="screen"/>
+</launch>
