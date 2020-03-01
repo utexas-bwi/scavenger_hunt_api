@@ -5,7 +5,7 @@ Complete codebase for BWI's Scavenger Hunt project.
 `website/` contains everything relating to the website. All other directories
 are ROS packages for Scavenger Hunt robots. Some important ones:
 
-* `scavenger_hunt/` - The Scavenger Hunt API. Contains utilities for connecting
+* `scavenger_hunt_api/` - The Scavenger Hunt API. Contains utilities for connecting
 to the website, uploading proofs, and querying proof feedback. Non-ROSified,
 though there is an optional ROS wrapper.
 * `bwi_scavenger/` - Drivers for our Scavenger Hunt participant robots.
@@ -20,7 +20,7 @@ though there is an optional ROS wrapper.
   * `ws_path` - Fully-qualified path to the workspace containing these packages
   * `world` - Either `sim` if running in Gazebo or `irl` if running in the lab
   * `topics/perception/xxx` - Camera topics should be prefixed with `/nav_kinect` for IRL and `/camera` for simulation
-* Verify launch parameters in `scavenger_hunt/config/scavenger_hunt.yaml`
+* Verify launch parameters in `scavenger_hunt_api/config/scavenger_hunt.yaml`
   * `website/domain` - Domain of Scavenger Hunt website (until the web server is
     up this is `localhost` for lab machines and `localhost:8080` for robots)
   * `scratch_path` - Valid path that ROS has permission to create files in
@@ -46,7 +46,7 @@ though there is an optional ROS wrapper.
 commands, open an SSH tunnel to Kane so the robot can see the website.
 
 ```
-ssh -L 8080:localhost:80 bwilab@kane.csres.utexas.edu
+ssh -D 8080 http://utw10989.utweb.utexas.edu/
 ```
 
 2. Navigate to the workspace and run the following launch files.
