@@ -42,8 +42,8 @@ though there is an optional ROS wrapper.
 
 ### Robot Startup
 
-1. Boot up the scavenger robot (probably Pickles or Bender). Before any ROS
-commands, open an SSH tunnel to Kane so the robot can see the website.
+1. Boot up the scavenger robot. Before any ROS
+commands, open an SSH tunnel on the robot so it can see the website.
 
 ```
 ssh -D 8080 http://utw10989.utweb.utexas.edu/
