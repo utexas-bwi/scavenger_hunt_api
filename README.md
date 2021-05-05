@@ -11,7 +11,31 @@ though there is an optional ROS wrapper.
 * `bwi_scavenger/` - Drivers for our Scavenger Hunt participant robots.
 * `darksocket/` - Tool for offboard darknet computing.
 
+## Installing
+
+In the `src/` folder of a catkin workspace:
+
+* `$ git clone https://github.com/utexas-bwi/scavenger_hunt_api.git --recursve` 
+
+build using catkin tools; `$ catkin build` in the root of your catkin workspace.
+
+## Using the Scavenger Hunt API 
+The `scavenger_hunt_api` folder of this repository of the same name contains ROS wrappers for interacting with 
+the Scavenger Hunt website so you can submit proofs and participate in Hunts. 
+
+This leaves the implementation of how to carry out the hunts up to the individual.
+
+Please see the [API](https://scavenger-hunt.cs.utexas.edu/public_html/api.php) webpage for details on the API.
+
 ## BWI Scavenger Startup
+
+The following sections outlines what is required to run the full Scavenger Hunt codebase on the BWIBot platforms. 
+The BWI Scavenger code may serve as an example for how to implement a scavenger hunt, fetching and starting Hunts, and submitting proofs.
+
+There are two options for image recognition: offloading the image processing to an offboard computer if the robot does 
+not have a GPU, or running YOLO directly on the robot computer if a GPU is available. 
+
+In the case that a GPU is not available, `darksocket` is used to facilitate data flow.
 
 ### Initial Configuration
 
@@ -43,7 +67,7 @@ though there is an optional ROS wrapper.
 ### Robot Startup
 
 1. Boot up the scavenger robot. Before any ROS
-commands, open an SSH tunnel on the robot so it can see the website.
+commands, open an SSH tunnel on the robot so it can see the website. This is required only for instances where `darksocket` is used to offload image processing to another machine.
 
 ```
 ssh -D 8080 http://utw10989.utweb.utexas.edu/
@@ -58,7 +82,7 @@ rosrun bwi_scavenger absim_ros.py
 python3 src/bwi_scavenger/scripts/absim_socket.py
 ```
 
-3. Run darksocket on the offboard machine. If everything was set up correctly, it should load the network and then print "connection established."
+3. Run darksocket on the offboard machine. If everything was set up correctly, it should load the network and then print "connection established." Again, only required if using `darksocket`.
 
 ```
 python darksocket.py client
