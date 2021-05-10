@@ -15,7 +15,7 @@ though there is an optional ROS wrapper.
 
 In the `src/` folder of a catkin workspace:
 
-* `$ git clone https://github.com/utexas-bwi/scavenger_hunt_api.git --recursve` 
+* `$ git clone https://github.com/utexas-bwi/scavenger_hunt_api.git --recursive` 
 
 build using catkin tools; `$ catkin build` in the root of your catkin workspace.
 
