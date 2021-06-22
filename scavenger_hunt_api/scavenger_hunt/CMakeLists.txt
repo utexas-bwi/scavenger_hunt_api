@@ -15,7 +15,6 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   cv_bridge
   scavenger_hunt_msgs
-  bwi_scavenger_msgs
   message_generation
 )
 
@@ -77,7 +76,6 @@ FIND_LIBRARY(curl-7.65.0 curl curl-7.65.0)
 generate_messages(
   DEPENDENCIES
   scavenger_hunt_msgs
-  bwi_scavenger_msgs
   std_msgs
 )
 

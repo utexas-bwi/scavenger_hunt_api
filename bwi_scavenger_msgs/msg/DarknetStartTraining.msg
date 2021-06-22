@@ -1,1 +1,0 @@
-string network_name

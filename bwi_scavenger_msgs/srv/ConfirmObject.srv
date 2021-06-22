@@ -1,4 +1,0 @@
-string label
-geometry_msgs/Point position
----
-bool ok
