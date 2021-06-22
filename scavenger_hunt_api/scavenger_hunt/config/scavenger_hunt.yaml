@@ -1,7 +1,7 @@
 scavenger_hunt:
   login:
-    email: user@email.com
-    password: ****
+    email: maxsvetlik@utexas.edu
+    password: InsecurePassword!
   website:
     domain: https://scavenger-hunt.cs.utexas.edu
   topics:
