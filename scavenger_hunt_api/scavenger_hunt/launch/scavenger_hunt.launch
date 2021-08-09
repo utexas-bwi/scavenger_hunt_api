@@ -3,7 +3,7 @@
 <launch>
 	<!-- Load config parameters -->
 	<arg name="config_path" default="$(find scavenger_hunt)/config"/>
-	<rosparam command="load" file="$(arg config_path)/scavenger_hunt.yaml"/>
+	<rosparam command="load" subst_value="true" file="$(arg config_path)/scavenger_hunt.yaml"/>
 
 	<!-- Main node -->
 	<node name="scavenger_hunt_node" pkg="scavenger_hunt" type="scavenger_hunt_node" output="screen"/>
